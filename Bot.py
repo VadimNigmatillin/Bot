@@ -26,10 +26,20 @@ db_username = os.getenv('DBUSER')
 db_password = os.getenv('DBPASSWORD')
 databasee = os.getenv('DBDATABASE')
 
-# Подключаем логирование
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Определяем путь к лог-файлу
+log_file = os.path.join(current_dir, 'logfile.txt')
+
+# Настройка журналирования
 logging.basicConfig(
-    filename='logfile.txt',  format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO, encoding="utf-8"
+    filename=log_file,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    level=logging.INFO,
+    encoding='utf-8'
 )
+
+# Получаем экземпляр логгера
 logger = logging.getLogger(__name__)
 
 # Константы для ConversationHandler
