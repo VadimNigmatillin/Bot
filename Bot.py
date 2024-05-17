@@ -445,7 +445,6 @@ def execute_sql_query(sql_query, update: Update):
         if connection is not None:
             cursor.close()
             connection.close()
-            logging.info("Соединение с базой данных закрыто.")
 
 
 def echo(update: Update, context):
